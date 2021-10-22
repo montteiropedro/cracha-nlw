@@ -1,0 +1,155 @@
+/* Cascading Style Sheet */
+
+/* Global ------------------------------ */
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+
+    font-family: 'Roboto', sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+
+    /* Variáveis */
+    --black: hsl(240, 6%, 13%);
+    --grey: hsl(240, 9%, 89%);
+    --grey2: hsl(240, 7%, 78%);
+    --grey3: hsl(240, 9%, 89%);
+    --hover-color: rgba(255, 0, 140, 0.582);
+}
+
+body {
+    display: grid;
+    place-items: center;
+}
+
+/* Main ------------------------------ */
+main {
+    background: url(./images/background.png);
+    width: 375px;
+    height: 812px;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+
+    max-width: 250px;
+
+    text-align: center;
+}
+
+.avatar {
+    position: relative;
+
+    width: 10rem;
+    margin: 11.5rem auto 0;
+}
+
+.avatar span {
+    position: absolute;
+
+    top: -15px;
+    z-index: 1;
+}
+
+.avatar > img {
+    width: 10rem;
+    height: 11.5rem;
+    object-fit: cover;
+
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+h1 {
+    margin-top: 1.5rem;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--grey);
+}
+
+a {
+    margin-top: 0.25rem;
+
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+
+    font-weight: 400;
+    color: var(--grey2);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
+.container p {
+    margin-top: 2rem;
+
+    font-weight: 400;
+    color: var(--grey3);
+}
+
+ul {
+    margin-top: 4rem;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+
+    list-style: none;
+}
+
+ul li:hover #youtube-hover,
+ul li:hover #instagram-hover,
+ul li:hover #facebook-hover,
+ul li:hover #twitter-hover {
+    transform: scale(1.10);
+}
+
+#youtube,
+#instagram,
+#facebook,
+#twitter {
+    position: absolute;
+}
+
+#youtube:hover,
+#instagram:hover,
+#facebook:hover,
+#twitter:hover {
+    opacity: 0;
+}
+
+main footer {
+    margin-top: 8.5rem;
+
+    text-align: center;
+    
+    font-size: 0.8rem;
+    color: var(--grey);
+    
+    opacity: 0.15;
+}
+
+main footer a {
+    display: inline;
+    text-decoration: underline;
+}
+
+main footer a:hover {
+    color: white;
+    opacity: 1;
+}
+
+/* 
+    - Referências:
+        https://qastack.com.br/programming/8114657/how-to-style-the-parent-element-when-hovering-a-child-element
+        
+        https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator
+*/
