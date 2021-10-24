@@ -1,7 +1,7 @@
 /* Cascading Style Sheet */
 
-/* Global ------------------------------ */
 * {
+    box-sizing: border-box;
     margin: 0;
 }
 
@@ -9,8 +9,6 @@ html, body {
     height: 100%;
 
     font-family: 'Roboto', sans-serif;
-
-    -webkit-font-smoothing: antialiased;
 
     /* Variáveis */
     --black: hsl(240, 6%, 13%);
@@ -22,59 +20,98 @@ html, body {
 
 body {
     display: grid;
+    grid-template-rows: 96% 4%;
     place-items: center;
+
+    background: url(images/desktop-background-highlight.svg) no-repeat center/cover;
+    background-color: #121214;
 }
 
 /* Main ------------------------------ */
 main {
-    background: url(./images/background.svg) no-repeat center/cover;
-    width: 100vw;
-    min-height: 812px;
-    height: 100vh;
+    display: grid;
+    place-items: center;
 }
 
-.container {
-    margin-right: auto;
-    margin-left: auto;
+#badgeContent {
+    position: relative;
 
-    max-width: 250px;
+    display: flex;
+    justify-content: center;
+}
 
+.band {
+    position: absolute;
+    z-index: 2;
+    
+    top: -125px;
+    
+    width: 4rem;
+    height: 9rem;
+    
+    background: url(images/band.svg);
+}
+
+.breakPoint {
+    position: absolute;
+    z-index: 1;
+    
+    top: 16px;
+    
+    width: 5rem;
+    height: 0.5rem;
+    
+    background: url(images/break-point.svg);
+}
+
+.card {
+    width: 22.5rem; /* 360px */
+    height: 33.75rem; /* 540px */
+
+    background: url(images/desktop-badge-background.svg) no-repeat center;
+    background-color: #121214;
+    
     text-align: center;
 }
 
+.container {
+    margin-top: 4.5rem;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    max-width: 250px;
+}
+
+
 .avatar {
     position: relative;
-
-    width: 10rem;
-    margin: 11.5rem auto 0;
 }
 
 .avatar span {
     position: absolute;
-
+    
     top: -15px;
+
     z-index: 1;
 }
 
 .avatar > img {
     width: 10rem;
     height: 11.5rem;
+
     object-fit: cover;
 
     clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
 }
 
-h1 {
-    margin-top: 1.5rem;
-
-    font-size: 1.5rem;
-    font-weight: 700;
+.container h1 {
+    margin-top: 0.25rem;
     color: var(--grey);
 }
 
-a {
+.container a {
     margin-top: 0.25rem;
-
     display: flex;
     justify-content: center;
     gap: 0.75rem;
@@ -84,19 +121,18 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    color: var(--hover-color);
+.container a:hover {
+    color: var(--hover-color);;
 }
 
 .container p {
     margin-top: 2rem;
 
-    font-weight: 400;
     color: var(--grey3);
 }
 
 ul {
-    margin-top: 4rem;
+    margin-top: 2.5rem;
     padding: 0;
 
     display: flex;
@@ -106,30 +142,23 @@ ul {
     list-style: none;
 }
 
-ul li:hover #youtube-hover,
-ul li:hover #instagram-hover,
-ul li:hover #facebook-hover,
-ul li:hover #twitter-hover {
+.socialButton {
+    position: absolute;
+    border-radius: 30%;
+}
+
+.socialButtonHover {
+    opacity: 0;
+    border-radius: 30%;
+}
+
+ul li:hover .socialButtonHover {
+    opacity: 1;
     transform: scale(1.10);
 }
 
-#youtube,
-#instagram,
-#facebook,
-#twitter {
-    position: absolute;
-}
-
-#youtube:hover,
-#instagram:hover,
-#facebook:hover,
-#twitter:hover {
-    opacity: 0;
-}
-
-main footer {
-    margin-top: 8.5rem;
-
+/* Footer ------------------------------ */
+footer {
     text-align: center;
     
     font-size: 0.8rem;
@@ -138,19 +167,11 @@ main footer {
     opacity: 0.15;
 }
 
-main footer a {
-    display: inline;
-    text-decoration: underline;
+footer a {
+    color: var(--grey2);
 }
 
-main footer a:hover {
+footer a:hover {
     color: white;
     opacity: 1;
 }
-
-/* 
-    - Referências:
-        https://qastack.com.br/programming/8114657/how-to-style-the-parent-element-when-hovering-a-child-element
-        
-        https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator
-*/
