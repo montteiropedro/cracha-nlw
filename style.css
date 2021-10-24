@@ -72,6 +72,8 @@ main {
     width: 22.5rem; /* 360px */
     height: 33.75rem; /* 540px */
 
+    border-radius: 20px;
+
     background: url(images/desktop-badge-background.svg) no-repeat center;
     
     text-align: center;
